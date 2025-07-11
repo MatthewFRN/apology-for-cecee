@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ngaku Salah 😅</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      background-color: #ffe4ec;
+      overflow: hidden;
+    }
+
+    /* === SCREEN 1: INTRO BLACK SCREEN === */
+    #intro {
+      background-color: #111;
+      color: white;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 10;
+      transition: opacity 1s ease;
+    }
+
+    #intro h1 {
+      font-size: 2em;
+      animation: blink 1s step-start infinite;
+    }
+
+    @keyframes blink {
+      50% { opacity: 0.5; }
+    }
+
+    /* === MAIN SCREEN === */
+    #main {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    h1 {
+      color: #e91e63;
+      font-size: 2.5em;
+      margin-bottom: 15px;
+    }
+
+    p {
+      font-size: 1.3em;
+      color: #444;
+      max-width: 500px;
+      margin-bottom: 20px;
+    }
+
+    .bob-img {
+      width: 180px;
+      border-radius: 20px;
+      margin: 20px 0;
+      box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    }
+
+    button {
+      background-color: #e91e63;
+      color: white;
+      border: none;
+      padding: 12px 25px;
+      border-radius: 10px;
+      font-size: 1.2em;
+      cursor: pointer;
+      margin-top: 15px;
+      transition: transform 0.2s;
+    }
+
+    button:hover {
+      transform: scale(1.1);
+    }
+
+    .extra {
+      font-size: 1em;
+      color: #888;
+      margin-top: 40px;
+    }
+
+    .balloon {
+      position: absolute;
+      width: 40px;
+      height: 60px;
+      background: radial-gradient(circle at 30% 30%, #ff8ac6, #e91e63);
+      border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+      animation: fly 5s ease-in infinite;
+      opacity: 0.7;
+    }
+
+    @keyframes fly {
+      0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0.8;
+      }
+      100% {
+        transform: translateY(-700px) rotate(360deg);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- SCREEN 1 -->
+<div id="intro">
+      <div style="text-align: center;">
+        <h1>hayo gw mau ngapain hayo? 🤨</h1>
+        <button onclick="masuk()" style="margin-top: 20px; padding: 10px 20px; font-size: 1em;">continue👍</button>
+      </div>
+    </div>
+
+  <!-- SCREEN 2 -->
+  <div id="main">
+    <h1>Bob bilang...</h1>
+    <img src="https://via.placeholder.com/180x180?text=Bob" alt="Bob" class="bob-img" id="bob-pic">
+
+    <p>
+      Maaf yaa... 😔  
+      gw kemarin tuh somehow random banget !?? bipolar 
+      fuckin shit sampe Bob aja ngerasa ilfeel.  
+      IM SO SORRY for the cutest girl i have 
+      ever seennn, lucunya karna PENDEEEEEKKK. ga kok canda,
+      karnaa cantik yg unlimitedd, truus bawa dampak positif 
+      ke gw YG BAHKAN BKINN JD MAKIN SEMANGAT belajar gw krn 
+      lawan bicaranyaa seruu diajak belajar barengg??!?! truss 
+      banyak tau soal hal umumm jugakk, literally different from
+      everyone perspective untuk org yg goodlooking pasti oon, 
+      ternyata yg ini beda jauuu?!?!? OKEI KEMBALI KETOPIK
+      oke maaf kemarinn yaa, MAAF YAA BENER MAAF karna gw bipolar
+      bgt dan overthinker bahkan problematik dan selalu bertindak
+      kaya gw yg cape sendiri dan bkn org lain :C maaf yaa
+      Bob sampe tiduran saking capek liat kelakuan gwa 🙃  
+    </p>
+
+    <button onclick="showBalloons()">Klik sini kalo udah nggak marah 🎈</button>
+
+    <div class="extra"><<
+      (Bob udah gampar gwa, skrg ga bkl bipolar lgi)
+    </div>
+  </div>
+
+  <script>
+function masuk() {
+    const intro = document.getElementById('intro');
+    intro.style.opacity = 0;
+    setTimeout(() => {
+      intro.style.display = 'none';
+      document.getElementById('main').style.display = 'flex';
+    }, 1000);
+  }
+  
+    // Ganti gambar bob
+    document.getElementById("bob-pic").src="bob.jpg";// INTRO delay
+    setTimeout(() => {
+      const intro = document.getElementById('intro');
+      intro.style.opacity = 0;
+      setTimeout(() => {
+        intro.style.display = 'none';
+        document.getElementById('main').style.display = 'flex';
+      }, 1000);
+    }, 2500); // tunggu 2.5 detik dulu baru masuk
+
+    function showBalloons() {
+      for (let i = 0; i < 20; i++) {
+        const balloon = document.createElement("div");
+        balloon.classList.add("balloon");
+        balloon.style.left = Math.random() * window.innerWidth + "px";
+        balloon.style.animationDuration = 3 + Math.random() * 3 + "s";
+        document.body.appendChild(balloon);
+        setTimeout(() => balloon.remove(), 5000);
+      }
+
+      alert("YEYYY diimaafin gw, Bob juga seneng bgt 💖");
+    }
+  </script>
+</body>
+</html>
